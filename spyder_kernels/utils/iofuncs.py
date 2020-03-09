@@ -198,7 +198,7 @@ try:
     def load_array(filename):
         try:
             name = osp.splitext(osp.basename(filename))[0]
-            data = np.load(filename)
+            data = np.load(filename, allow_pickle=False)
             if isinstance(data, np.lib.npyio.NpzFile):
                 return dict(data), None
             elif hasattr(data, 'keys'):
